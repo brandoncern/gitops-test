@@ -1,24 +1,24 @@
 # In this directory, run the following command to build this builder.
 # $ gcloud builds submit . --config=cloudbuild.yaml --substitutions _BUCKET='<bucket name>'
 steps:
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+- name: 'gcr.io/cloud-init-248919/terraform'
   args: ['init',
-    '-backend-config=project=${PROJECT_ID}',
+    '-backend-config=project=cloud-init-248919',
     '-backend-config=bucket=${_BUCKET}']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+    - "TF_VAR_project-name=cloud-init-248919"
+- name: 'gcr.io/cloud-init-248919/terraform'
   args: ['plan']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+    - "TF_VAR_project-name=cloud-init-248919"
+- name: 'gcr.io/cloud-init-248919/terraform'
   args: ['apply', '-auto-approve']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
-- name: 'gcr.io/${PROJECT_ID}/terraform'
+    - "TF_VAR_project-name=cloud-init-248919"
+- name: 'gcr.io/cloud-init-248919/terraform'
   args: ['destroy', '-auto-approve']
   env:
-    - "TF_VAR_project-name=${PROJECT_ID}"
+    - "TF_VAR_project-name=cloud-init-248919"
 substitutions:
-    _BUCKET: # Provide your own bucket name
+    _BUCKET: adfgdsfgdafgfdsg
 tags: ['cloud-builders-community']
