@@ -19,10 +19,6 @@ resource "google_container_cluster" "terraform-builder-gcs-backend" {
       "https://www.googleapis.com/auth/monitoring",
     ]
 
-    labels {
-      reason = "terraform-builder-example"
-    }
-
     tags = ["example"]
   }
 }
