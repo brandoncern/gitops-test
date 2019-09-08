@@ -3,7 +3,7 @@
 steps:
 - name: 'gcr.io/cloud-init-248919/terraform'
   args: ['init',
-    '-backend-config=project=cloud-init-248919',
+    #'-backend-config=project=cloud-init-248919',
     '-backend-config=bucket=${_BUCKET}']
   env:
     - "TF_VAR_project-name=cloud-init-248919"
